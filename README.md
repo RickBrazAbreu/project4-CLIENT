@@ -1,4 +1,9 @@
-# To be used in conjunction with project four API
+# YellowStone
+  We are a Virtual Store, where clients can create their profile , log in, log out, and buy their clothes, You can add money to your account and spend this money.
+   (...in version 2.0  our customers will be able to use a real credCard.. "Maybe"..).
+
+
+## To be used in conjunction with project four API
 https://github.com/RickBrazAbreu/Project4-Server
 
 ### User Stories
@@ -31,11 +36,6 @@ https://github.com/RickBrazAbreu/Project4-Server
 - Should be able to remove items as stated above
 - Create a list of certain items 
 - 	being able to save items to specific lists that aren’t favorites
-
-### ERD
-
-![](./planning/ERD/ERD.jpg)
-
 
 
 
