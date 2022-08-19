@@ -20,10 +20,9 @@ https://github.com/RickBrazAbreu/Project4-Server
 
 - Search for Available ship items
 - Save items to a cart
-- 	remove items
+- 	remove items from cart
 - 	organize items in cart
 - 	favorite items in the cart
-- Buy an item without going through the cart
 - Favorite items for later
 - Remove favorites
 
