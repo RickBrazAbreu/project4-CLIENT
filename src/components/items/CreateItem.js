@@ -1,20 +1,20 @@
 import { useState } from 'react'
-import { createArtifact } from '../../api/artifacts'
+import { createItem } from '../../api/items'
 import { useNavigate } from 'react-router-dom'
-import { createArtifactSuccess, createArtifactFailure } from '../shared/AutoDismissAlert/messages'
-import ArtifactForm from '../shared/ArtifactForm'
+import { createItemSuccess, createItemFailure } from '../shared/AutoDismissAlert/messages'
+import ItemForm from '../shared/ItemForm'
 
 import '../../components/style.css'
 
-const CreateArtifact = (props) => {
-    console.log('these are the props in createArtifact\n', props)
+const CreateItem = (props) => {
+    console.log('these are the props in createItem\n', props)
     
     // User and messages
     const { user, msgAlert } = props
     const navigate = useNavigate()
 
-    // Used to create the artifact object to send to the API.
-    const [artifact, setArtifact] = useState({
+    // Used to create the item object to send to the API.
+    const [item, setItem] = useState({
         name: '',
         slot: '',
         level: '',
@@ -31,20 +31,20 @@ const CreateArtifact = (props) => {
             amount: ''}]
     })
 
-    console.log('this is artifact in createArtifact', artifact)
+    console.log('this is item in createItem', item)
 
     const handleChange = (e, index) => {
-        setArtifact(prevArtifact => {
-            // key/value pair in the artifact object.
+        setItem(prevItem => {
+            // key/value pair in the item object.
             const updatedName = e.target.name
             let updatedValue = e.target.value
-            // Updated key/value pair in the artifact object
-            let updatedArtifact = null
+            // Updated key/value pair in the item object
+            let updatedItem = null
             // Updated key/value that in the substats array 
             // array index - To know with one out of the 4 to update.
             let updatedId = index
             // used make the array
-            let newArr = [...artifact.substats]
+            let newArr = [...item.substats]
             
             if (e.target.type === 'number') {
                 updatedValue = parseFloat(e.target.value)
@@ -53,27 +53,27 @@ const CreateArtifact = (props) => {
             // Detect if the array needs be updated and if it's stat one or amount
             if (updatedName === 'substats.stat') {
                 newArr[updatedId] = {
-                    ...prevArtifact.substats[updatedId],
+                    ...prevItem.substats[updatedId],
                     stat: updatedValue
                 }
-                updatedArtifact = {substats: [...newArr]}
+                updatedItem = {substats: [...newArr]}
             } else if (updatedName === 'substats.amount') {
                 newArr[updatedId] = {
-                    ...prevArtifact.substats[updatedId],
+                    ...prevItem.substats[updatedId],
                     amount: updatedValue
                 }
-                updatedArtifact = {substats: [...newArr]}
+                updatedItem = {substats: [...newArr]}
             //If it's nut one of the arrays, nothing special needs to be done to it.
             } else {
-                updatedArtifact = {
-                    ...prevArtifact.substats,
+                updatedItem = {
+                    ...prevItem.substats,
                     [updatedName]: updatedValue
                 }
             }
             
             return {
-                ...prevArtifact,
-                ...updatedArtifact
+                ...prevItem,
+                ...updatedItem
             }
         })
     }
@@ -82,14 +82,14 @@ const CreateArtifact = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        createArtifact(user, artifact)
-            // if we're successful, navigate to the show page for the new artifact
-            .then(res => { navigate(`/artifacts/${res.data.artifact._id}`)})
+        createItem(user, item)
+            // if we're successful, navigate to the show page for the new item
+            .then(res => { navigate(`/items/${res.data.item._id}`)})
             // send a success message to the user
             .then(() => {
                 msgAlert({
                     heading: 'Oh Yeah!',
-                    message: createArtifactSuccess,
+                    message: createItemSuccess,
                     variant: 'success'
                 })
             })
@@ -97,7 +97,7 @@ const CreateArtifact = (props) => {
             .catch(() => 
                 msgAlert({
                     heading: 'Oh No!',
-                    message: createArtifactFailure,
+                    message: createItemFailure,
                     variant: 'danger'
                 })
             )
@@ -105,13 +105,13 @@ const CreateArtifact = (props) => {
 
     // the form the user fills out.
     return (
-        <ArtifactForm 
-            artifact={ artifact } 
+        <ItemForm 
+            item={ item } 
             handleChange={ handleChange }
             handleSubmit={ handleSubmit }
-            heading="Add a new artifact!"
+            heading="Add a new item!"
         />
     )
 }
 
-export default CreateArtifact
+export default CreateItem
