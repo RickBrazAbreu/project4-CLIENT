@@ -8,50 +8,51 @@ const linkStyle = {
 }
 const authenticatedOptions = (
 	<>
-		<Nav.Link>
+		<Nav.Item className='m-2'>
+			<Link to='/addItem' style={linkStyle}>
+				Add a Item
+			</Link>
+		</Nav.Item>
+		<Nav.Item className='m-2'>
 			<Link to='change-password' style={linkStyle}>
 				Change Password
 			</Link>
-		</Nav.Link>
-		<Nav.Link>
+		</Nav.Item>
+		<Nav.Item className='m-2'>
 			<Link to='sign-out' style={linkStyle}>
 				Sign Out
 			</Link>
-		</Nav.Link>
-		<Nav.Link>
-			<Link to='shop-cart' style={linkStyle}>
-				Cart
-			</Link>
-		</Nav.Link>
+		</Nav.Item>
+
 	</>
 )
 
 const unauthenticatedOptions = (
 	<>
-        <Nav.Link>
+        <Nav.Item className='m-2'>
 		    <Link to='sign-up' style={linkStyle}>Sign Up</Link>
-        </Nav.Link>
-        <Nav.Link>
+        </Nav.Item>
+        <Nav.Item className='m-2'>
 		    <Link to='sign-in' style={linkStyle}>Sign In</Link>
-        </Nav.Link>
+        </Nav.Item>
 	</>
 )
 
 const alwaysOptions = (
 	<>
-		<Nav.Link>
+		<Nav.Item className='m-2'>
 			<Link to='/' style={linkStyle}>
 				Home
 			</Link>
-		</Nav.Link>
+		</Nav.Item>
 	</>
 )
 
 const Header = ({ user }) => (
 	<Navbar bg='primary' variant='dark' expand='md'>
-		<Navbar.Brand>
+		<Navbar.Brand className='m-2'>
             <Link to='/' style={linkStyle}>
-                YellowStone
+                Itens
             </Link>
         </Navbar.Brand>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />

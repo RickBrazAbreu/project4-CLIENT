@@ -11,8 +11,9 @@ import Home from './components/Home'
 import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
-import Cart from './components/views/Cart'
 import ChangePassword from './components/auth/ChangePassword'
+import ShowItem from './components/itens/ShowItem'
+import CreateItem from './components/itens/CreateItem'
 
 const App = () => {
 
@@ -41,20 +42,19 @@ const App = () => {
 		})
 	}
 
-		return (
+	return (
 		<Fragment>
 			<Header user={user} />
-				<Routes>
-					<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
-						<Route
-								path='/sign-up'
-								element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
-						/>
-
-						<Route
-								path='/sign-in'
-								element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
-						/>
+			<Routes>
+				<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
+				<Route
+					path='/sign-up'
+					element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
+				/>
+				<Route
+					path='/sign-in'
+					element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
+				/>
 				<Route
 					path='/sign-out'
 					element={
@@ -63,7 +63,6 @@ const App = () => {
 					</RequireAuth>
 					}
 				/>
-
 				<Route
 					path='/change-password'
 					element={
@@ -71,32 +70,31 @@ const App = () => {
 						<ChangePassword msgAlert={msgAlert} user={user} />
 					</RequireAuth>}
 				/>
-
-				<Route 
-					path='/shop-cart'
+				<Route
+					path="/itens/:id"
+					element={ <ShowItem user={ user } msgAlert={ msgAlert } />}
+				/>
+				<Route
+					path="/addItem"
 					element={
-						<RequireAuth user={user}>
-							<Cart user={user} />
-
-						</RequireAuth>
-					
-				}
-				
+						<RequireAuth user={ user }>
+							<CreateItem msgAlert={msgAlert} user={user}/>
+						</RequireAuth>  
+					}
 				/>
-				</Routes>
-					{msgAlerts.map((msgAlert) => (
-						<AutoDismissAlert
-							key={msgAlert.id}
-							heading={msgAlert.heading}
-							variant={msgAlert.variant}
-							message={msgAlert.message}
-							id={msgAlert.id}
-							deleteAlert={deleteAlert}
+			</Routes>
+			{msgAlerts.map((msgAlert) => (
+				<AutoDismissAlert
+					key={msgAlert.id}
+					heading={msgAlert.heading}
+					variant={msgAlert.variant}
+					message={msgAlert.message}
+					id={msgAlert.id}
+					deleteAlert={deleteAlert}
 				/>
-
-				))}
+			))}
 		</Fragment>
-		)
+	)
 }
 
 export default App
