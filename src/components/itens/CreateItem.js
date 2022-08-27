@@ -11,10 +11,10 @@ const CreateItem = (props) => {
     const navigate = useNavigate()
 
     const [item, setItem] = useState({
-        name: '',
-        type: '',
-        age: '',
-        adoptable: false
+        item: '',
+        brand: '',
+        price: '',
+        new: false
     })
 
     console.log('this is item in createItem', item)
@@ -32,9 +32,9 @@ const CreateItem = (props) => {
             }
 
             // this handles the checkbox, changing on to true etc
-            if (updatedName === "adoptable" && e.target.checked) {
+            if (updatedName === "new" && e.target.checked) {
                 updatedValue = true
-            } else if (updatedName === "adoptable" && !e.target.checked) {
+            } else if (updatedName === "new" && !e.target.checked) {
                 updatedValue = false
             }
 

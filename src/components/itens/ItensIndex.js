@@ -55,10 +55,11 @@ const ItensIndex = (props) => {
 
     const itemCards = itens.map(item => (
         <Card style={{ width: '30%', margin: 5}} key={ item.id }>
-            <Card.Header>{ item.fullTitle }</Card.Header>
+            <Card.Header>{ item.item }</Card.Header>
             <Card.Body>
                 <Card.Text>
                     <Link to={`/itens/${item.id}`}>View { item.name }</Link>
+                    <button>Add To Cart</button>
                 </Card.Text>
             </Card.Body>
         </Card>

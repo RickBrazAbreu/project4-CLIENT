@@ -11,35 +11,35 @@ const ItemForm = (props) => {
         <Container className="justify-content-center">
             <h3>{heading}</h3>
             <Form onSubmit={handleSubmit}>
-                <Form.Label htmlFor="item">Item</Form.Label>
+                <Form.Label htmlFor="item">Name of Item</Form.Label>
                 <Form.Control
-                    placeholder="What is your item's item?"
-                    item="item"
+                    placeholder="What is your item?"
+                    name="item"
                     id="item"
-                    value={ item.item }
+                    value={ item.name }
                     onChange={ handleChange }
                 />
-                <Form.Label htmlFor="type">Type</Form.Label>
+                <Form.Label htmlFor="brand">Brand</Form.Label>
                 <Form.Control
                     placeholder="What kind of item is this?"
-                    item="type"
-                    id="type"
-                    value={ item.type }
+                    name="brand"
+                    id="brand"
+                    value={ item.name }
                     onChange={ handleChange }
                 />
-                <Form.Label htmlFor="age">Age</Form.Label>
+                <Form.Label htmlFor="price">Price</Form.Label>
                 <Form.Control
-                    placeholder="How old is your item?"
+                    placeholder="What price is your item?"
                     type="number"
-                    item="price"
+                    name="price"
                     id="price"
                     value={ item.price }
                     onChange={ handleChange }
                 />
                 <Form.Check
-                    label="Is this item adoptable?"
-                    item="adoptable"
-                    defaultChecked={ item.adoptable  }
+                    label="Is this item new?"
+                    item="new"
+                    defaultChecked={ item.new  }
                     onChange={ handleChange }
                 />
                 <Button type="submit">Submit</Button>
