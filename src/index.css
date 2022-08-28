@@ -5,6 +5,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+
+}
+.main-screen{
+  height: 100vh; /* here make div extend height to the whole page*/
+  background-color: aqua;
 }
 
 code {
@@ -18,4 +24,19 @@ code {
 
 .top-text{
 color: black;
+}
+.cart-btn{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.cart-num{
+  color: aliceblue;
+  background-color: rgb(110, 110, 111);
+  width: 15px;
+  border-radius: 5px;
+}
+.store-name-top{
+  font-weight: bold;
+
 }

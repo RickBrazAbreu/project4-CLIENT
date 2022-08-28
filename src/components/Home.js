@@ -7,10 +7,10 @@ const Home = (props) => {
 	const { msgAlert } = props
 
 	return (
-		<>
+		<div className='main-screen'>
 			<h2>See the Itens</h2>
 			<ItensIndex msgAlert={ msgAlert } />
-		</>
+		</div>
 	)
 }
 
