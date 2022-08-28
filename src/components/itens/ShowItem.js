@@ -90,6 +90,12 @@ const ShowItem = (props) => {
                     <Card.Body>
                         <Card.Text>
                             <div><h1>{ item.item }</h1></div>
+                            <h2>{item.brand}</h2>
+                            <h2>{item.price}</h2>
+                            <div> 
+                                <small className='new-Item'> New: {item.new ? 'yes' : 'no'}
+                                </small>
+                                </div>
                             
                             
                         </Card.Text>

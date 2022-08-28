@@ -14,6 +14,8 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import ShowItem from './components/itens/ShowItem'
 import CreateItem from './components/itens/CreateItem'
+import Cart from './components/views/Cart'
+
 
 const App = () => {
 
@@ -82,6 +84,12 @@ const App = () => {
 						</RequireAuth>  
 					}
 				/>
+				<Route
+					path='/cart'
+					element={<Cart msgAlert={msgAlert} setUser={setUser} />}
+				/>
+
+
 			</Routes>
 			{msgAlerts.map((msgAlert) => (
 				<AutoDismissAlert

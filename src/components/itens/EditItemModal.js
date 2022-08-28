@@ -26,9 +26,9 @@ const EditItemModal = (props) => {
             }
 
             // this handles the checkbox, changing on to true etc
-            if (updatedName === "adoptable" && e.target.checked) {
+            if (updatedName === "new" && e.target.checked) {
                 updatedValue = true
-            } else if (updatedName === "adoptable" && !e.target.checked) {
+            } else if (updatedName === "new" && !e.target.checked) {
                 updatedValue = false
             }
 

@@ -3,12 +3,12 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
 const linkStyle = {
-    color: 'white',
+    color: 'black',
     textDecoration: 'none'
 }
 const authenticatedOptions = (
 	<>
-		<Nav.Item className='m-2'>
+		<Nav.Item className='m-2' >
 			<Link to='/addItem' style={linkStyle}>
 				Add a Item
 			</Link>
@@ -21,6 +21,11 @@ const authenticatedOptions = (
 		<Nav.Item className='m-2'>
 			<Link to='sign-out' style={linkStyle}>
 				Sign Out
+			</Link>
+		</Nav.Item>
+		<Nav.Item className='m-2' >
+			<Link to='/cart' style={linkStyle}>
+				Cart
 			</Link>
 		</Nav.Item>
 
@@ -49,17 +54,17 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-	<Navbar bg='primary' variant='dark' expand='md'>
+	<Navbar className='top'  variant='dark' expand='md'>
 		<Navbar.Brand className='m-2'>
             <Link to='/' style={linkStyle}>
-                Itens
+                YellowStone
             </Link>
         </Navbar.Brand>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />
 		<Navbar.Collapse id='basic-navbar-nav'>
-			<Nav className='ml-auto'>
+			<Nav className='ml-auto ' >
 				{user && (
-					<span className='navbar-text mr-2'>Welcome, {user.email}</span>
+					<span style={linkStyle} className='navbar-text mr-2 '>Welcome, {user.email}</span>
 				)}
 				{alwaysOptions}
 				{user ? authenticatedOptions : unauthenticatedOptions}
