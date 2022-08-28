@@ -18,15 +18,17 @@ const authenticatedOptions = (
 				Change Password
 			</Link>
 		</Nav.Item>
-		<Nav.Item className='m-2'>
+		<Nav.Item className='m-2 '>
 			<Link to='sign-out' style={linkStyle}>
 				Sign Out
 			</Link>
 		</Nav.Item>
-		<Nav.Item className='m-2' >
+		<Nav.Item className='m-2 icon-wrap cart-btn' >
+		
 			<Link to='/cart' style={linkStyle}>
 				Cart
 			</Link>
+			<div className='cart-num'>1</div>
 		</Nav.Item>
 
 	</>
@@ -56,7 +58,7 @@ const alwaysOptions = (
 const Header = ({ user }) => (
 	<Navbar className='top'  variant='dark' expand='md'>
 		<Navbar.Brand className='m-2'>
-            <Link to='/' style={linkStyle}>
+            <Link className='store-name-top' to='/' style={linkStyle}>
                 YellowStone
             </Link>
         </Navbar.Brand>

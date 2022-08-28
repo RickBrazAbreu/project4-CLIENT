@@ -86,7 +86,7 @@ const ShowItem = (props) => {
         <>
             <Container className="fluid">
                 <Card>
-                    <Card.Header>{ item.fullTitle }</Card.Header>
+                    <Card.Header>{ item.item }</Card.Header>
                     <Card.Body>
                         <Card.Text>
                             <div><h1>{ item.item }</h1></div>
@@ -120,7 +120,7 @@ const ShowItem = (props) => {
                                     className="m-2"
                                     variant="danger"
                                 >
-                                    Set {item.name} Free
+                                    Delete {item.name}
                                 </Button>
                             </>
                             :
