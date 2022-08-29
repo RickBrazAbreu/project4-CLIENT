@@ -1,4 +1,5 @@
 import ItensIndex from './itens/ItensIndex'
+import './style.css'
 
 const Home = (props) => {
 	// const { msgAlert, user } = props

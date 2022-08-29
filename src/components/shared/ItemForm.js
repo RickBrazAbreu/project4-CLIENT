@@ -1,7 +1,7 @@
 import { 
     Form,
     Button,
-    Container 
+    Container,
 } from 'react-bootstrap'
 
 const ItemForm = (props) => {
@@ -42,6 +42,9 @@ const ItemForm = (props) => {
                     defaultChecked={ item.new  }
                     onChange={ handleChange }
                 />
+                {/* <Form.
+
+                /> */}
                 <Button type="submit">Submit</Button>
             </Form>
         </Container>
