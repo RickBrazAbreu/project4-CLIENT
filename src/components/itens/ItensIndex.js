@@ -34,7 +34,7 @@ const ItensIndex = (props) => {
             .then(res => setItens(res.data.itens))
             .catch(err => {
                 msgAlert({
-                    heading: 'Error Getting Itens',
+                    heading: 'Error Getting Items',
                     message: messages.getItensFailure,
                     variant: 'danger',
                 })
@@ -50,7 +50,7 @@ const ItensIndex = (props) => {
     if (!itens) {
         return <LoadingScreen />
     } else if (itens.length === 0) {
-        return <p>No itens yet. Better add some.</p>
+        return <p>No items yet. Better add some.</p>
     }
 
     const itemCards = itens.map(item => (
