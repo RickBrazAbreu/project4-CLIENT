@@ -2,6 +2,7 @@
 import React, { useState, Fragment } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
+import './App.css'
 
 // import AuthenticatedRoute from './components/shared/AuthenticatedRoute'
 import AutoDismissAlert from './components/shared/AutoDismissAlert/AutoDismissAlert'
@@ -45,7 +46,7 @@ const App = () => {
 	}
 
 	return (
-		<Fragment>
+		<div id='main'>
 			<Header user={user} />
 			<Routes>
 				<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
@@ -101,7 +102,7 @@ const App = () => {
 					deleteAlert={deleteAlert}
 				/>
 			))}
-		</Fragment>
+		</div>
 	)
 }
 

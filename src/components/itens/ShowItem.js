@@ -10,6 +10,7 @@ import LoadingScreen from '../shared/LoadingScreen'
 import { getOneItem, updateItem, removeItem } from '../../api/itens'
 import messages from '../shared/AutoDismissAlert/messages'
 import EditItemModal from './EditItemModal'
+import './Style.css'
 
 
 // We need to get the item's id from the parameters

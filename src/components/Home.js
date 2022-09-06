@@ -1,4 +1,5 @@
 import ItensIndex from './itens/ItensIndex'
+import './style.css'
 
 const Home = (props) => {
 	// const { msgAlert, user } = props
@@ -8,7 +9,7 @@ const Home = (props) => {
 
 	return (
 		<div className='main-screen'>
-			<h2>See the Itens</h2>
+			<h2>See the Items</h2>
 			<ItensIndex msgAlert={ msgAlert } />
 		</div>
 	)
