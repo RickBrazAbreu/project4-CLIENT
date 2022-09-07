@@ -1,11 +1,18 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { 
+    useState, 
+    useEffect 
+} from 'react'
+import Card from 'react-bootstrap/Card'
+import { Link } from 'react-router-dom'
 
-import { signIn } from '../../api/auth'
+import LoadingScreen from '../shared/LoadingScreen'
+import { getAllItens } from '../../api/itens'
 import messages from '../shared/AutoDismissAlert/messages'
 
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+// ItensIndex should make a request to the api
+// To get all itens
+// Then display them when it gets them
+
 
 const SignIn = (props) => {
     const [email, setEmail] = useState('')
@@ -16,40 +23,63 @@ const SignIn = (props) => {
 		event.preventDefault()
         console.log('the props', props)
 		const { msgAlert, setUser } = props
+// style for our card container
+const cardContainerStyle = {
+    display: 'flex',
+    flexFlow: 'row wrap',
+    justifyContent: 'center'
+}
 
-        const credentials = {email, password}
+const ItensIndex = (props) => {
+    const [itens, setItens] = useState(null)
+    const [error, setError] = useState(false)
 
-		signIn(credentials)
-			.then((res) => setUser(res.data.user))
-			.then(() =>
-				msgAlert({
-					heading: 'Sign In Success',
-					message: messages.signInSuccess,
-					variant: 'success',
-				})
-			)
-			.then(() => navigate('/'))
-			.catch((error) => {
-                setEmail('')
-                setPassword('')
-				msgAlert({
-					heading: 'Sign In Failed with error: ' + error.message,
-					message: messages.signInFailure,
-					variant: 'danger',
-				})
-			})
-	}
+    const { msgAlert } = props
+
+    console.log('Props in ItensIndex', props)
+
+    useEffect(() => {
+        console.log(props)
+        getAllItens()
+            .then(res => setItens(res.data.itens))
+            .catch(err => {
+                msgAlert({
+                    heading: 'Error Getting Items',
+                    message: messages.getItensFailure,
+                    variant: 'danger',
+                })
+                setError(true)
+            })
+    }, [])
+
+    if (error) {
+        return <p>Error!</p>
+    }
+
+    // If itens haven't been loaded yet, show a loading message
+    if (!itens) {
+        return <LoadingScreen />
+    } else if (itens.length === 0) {
+        return <p>No items yet. Better add some.</p>
+    }
+
+    const itemCards = itens.map(item => (
+        <Card className='card-shape'  style={{ width: '30%', margin: 5}} key={ item.id }>
+            <Card.Header>{ item.item }</Card.Header>
+            <Card.Body className="card-color">
+                <Card.Text>
+                    <Link to={`/itens/${item.id}`}>View { item.name }</Link>
+                    <button>Add To Cart</button>
+                </Card.Text>
+            </Card.Body>
+        </Card>
+    ))
 
     return (
-        <div className='row'>
-            <div className='col-sm-10 col-md-8 mx-auto mt-5'>
-
-                <h3>Loading Itens...</h3>
-
-                
-            </div>
+        <div style={ cardContainerStyle }>
+            { itemCards }
         </div>
     )
 }
 
-export default SignIn
+export default ItensIndex
