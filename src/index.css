@@ -6,24 +6,17 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
-
 }
 .main-screen{
-  height: 100vh; 
-  background-color: rgb(239, 226, 186);
+  height: 100%; 
+  background-color: rgb(189, 186, 239);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-#main {
-  background-color: rgb(239, 226, 186);
-}
-.top{
-  background-color: rgb(255, 255, 255);
-}
+
 
 .top-text{
 color: black;
@@ -34,12 +27,12 @@ color: black;
   text-align: center;
 }
 .cart-num{
-  color: rgb(255, 240, 240);
+  color: rgb(23, 18, 162);
   background-color: rgb(255, 136, 136);
   width: 15px;
   border-radius: 5px;
 }
 .store-name-top{
-  font-weight: bold;
+  font-weight: bold 3px;
 
 }

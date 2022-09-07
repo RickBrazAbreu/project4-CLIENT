@@ -56,6 +56,7 @@ const ItensIndex = (props) => {
             <Card.Body className="card-color" >
             
             {/* <Image src={item.itemtype} fluid={true} alt=''/> */}
+            <Image src={pantsImg} fluid={true} alt=''/>
                 {/* <Image fluid={true} src={item.itemtype} alt=''/> */}
 
                 

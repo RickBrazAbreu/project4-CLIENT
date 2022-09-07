@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
+import 'bootstrap/dist/css/bootstrap.css'
 import { Link } from 'react-router-dom'
 const linkStyle = {
     color: 'black',
@@ -57,11 +58,14 @@ const alwaysOptions = (
 
 const Header = ({ user }) => (
 	<Navbar className='top'  variant='dark' expand='md'>
-		<Navbar.Brand className='m-2'>
-            <Link className='store-name-top' to='/' style={linkStyle}>
-                YellowStone
+
+		<Navbar.Brand className='mx-2 yellow-logo store-name-top'>
+            <Link to='/' style={linkStyle}>
+                <h1>YellowStone</h1>
             </Link>
         </Navbar.Brand>
+
+		{/* here is the only part where toglle work for.. */}
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />
 		<Navbar.Collapse id='basic-navbar-nav'>
 			<Nav className='ml-auto ' >

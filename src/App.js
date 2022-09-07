@@ -44,7 +44,8 @@ const App = () => {
 	}
 
 	return (
-		<div id='main'>
+		<Fragment>
+
 			<Header user={user} />
 			<Routes>
 				<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
@@ -100,7 +101,8 @@ const App = () => {
 					deleteAlert={deleteAlert}
 				/>
 			))}
-		</div>
+		
+		</Fragment>
 	)
 }
 

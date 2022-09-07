@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-
+import pantsImg from '../../imgs store/pants.jpeg'
 // useParams will allow us to see our parameters
 // useNavigate will allow us to navigate to a specific page
 
@@ -63,7 +63,7 @@ const ShowItem = (props) => {
     }
    
     const buyTheItem = () => {
-        removeItem(user, item.id)
+        removeItem(user,item.id)
             .then(() => {
                 msgAlert({
                     heading: 'Purchased',
@@ -92,64 +92,13 @@ const ShowItem = (props) => {
                 <div className='row' >
                     <div className='col-md-5' style={{textAlign: 'center', marginTop:10}}>
 
-                    
-                    <Card style={{ borderRadius:15 }}>
-                        <Card.Header className='itens-name-card'> <h1>{ item.item } </h1> </Card.Header>
-                        <Card.Body className="card-color" >
-                            <Card.Text className="card-color">
-                                {/* <div className="card-color-name"><h1>{ item.item }</h1></div> */}
-                                <h2 className="card-color">{item.brand}</h2>
-
-                                <Image fluid={true} src={item.itemtype} alt=''/>
-
-                                {/* <Image fluid={true} >{item.itemtype}</Image> */}
-
-                                <h2 className="card-color">{item.price}</h2>
-                                <div className="card-color"> 
-                                    <small className='new-Item'> New: {item.new ? 'yes' : 'no'}
-                                    </small>
-                                    </div>
-                                
-                                
-                            </Card.Text>
-                        </Card.Body>
-                        <Card.Footer>
-                            {/* <Button onClick={() => setEditModalShow(true)}
-                                className="m-2" variant="info"
-                            >
-                                Give {item.name} edit!
-                            </Button> */}
-                            {
-                                item.owner && user && item.owner._id === user._id 
-                                ?
-                                <>
-                                    <Button onClick={() => setEditModalShow(true)} 
-                                        className="m-2" 
-                                        variant="warning"
-                                    >
-                                        Edit Item
-                                    </Button>
-                                    <Button onClick={() => removeTheItem()}
-                                        className="m-2"
-                                        variant="danger"
-                                    >
-                                        Delete {item.name}
-                                    </Button>
-                                </>
-                                :
-                                null
-                            }
-                        </Card.Footer>
-                    </Card>
-
-                    </div>
-                </div>
-
                 <Card style={{ borderRadius:15 }}>
                     <Card.Header className='itens-name-card'> <h1>{ item.item } </h1> </Card.Header>
                     <Card.Body className="card-color" >
                         <Card.Text className="card-color">
                             <h2 className="card-color">{item.brand}</h2>
+                            <Image src={pantsImg} fluid={true} alt=''/>
+
                             <h2 className="card-color">{item.price}</h2>
                             <div className="card-color"> 
                                 <small className='new-Item'> New: {item.new ? 'yes' : 'no'}
@@ -160,7 +109,10 @@ const ShowItem = (props) => {
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
+
+                                
                         {
+                            
                             item.owner && user && item.owner._id === user._id 
                             ?
                             <>
@@ -176,21 +128,26 @@ const ShowItem = (props) => {
                                 >
                                     Delete {item.name}
                                 </Button>
-                                <Button onClick = {() =>
+
+                                <Button class="btn btn-primary" onClick = {() =>
                                     buyTheItem()}
                                         className="m-2"
-                                        variant='bought'
+                                        
                                 >
                                     Buy {item.name}
                                 </Button>
+                                
                             </>
                             :
                             null
                         }
                     </Card.Footer>
                 </Card>
+                </div>
+                </div>
 
             </Container>
+
             <EditItemModal 
                 user={user}
                 item={item} 
