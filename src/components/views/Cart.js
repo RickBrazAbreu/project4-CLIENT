@@ -13,6 +13,16 @@ import messages from '../shared/AutoDismissAlert/messages'
 // To get all itens
 // Then display them when it gets them
 
+
+const SignIn = (props) => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const navigate = useNavigate()
+	const onSignIn = (event) => {
+		event.preventDefault()
+        console.log('the props', props)
+		const { msgAlert, setUser } = props
 // style for our card container
 const cardContainerStyle = {
     display: 'flex',
