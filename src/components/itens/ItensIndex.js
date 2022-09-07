@@ -63,7 +63,7 @@ const ItensIndex = (props) => {
 
                 <Card.Text className='itens-name-card'>
                     <Link to={`/itens/${item.id}`}>View { item.name }</Link>
-                    {/* <button>Add To Cart</button> */}
+                    
                 </Card.Text>
             </Card.Body>
         </Card>

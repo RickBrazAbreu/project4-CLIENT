@@ -24,13 +24,7 @@ const authenticatedOptions = (
 				Sign Out
 			</Link>
 		</Nav.Item>
-		<Nav.Item className='m-2 icon-wrap cart-btn' >
 		
-			<Link to='/cart' style={linkStyle}>
-				Cart
-			</Link>
-			<div className='cart-num'>1</div>
-		</Nav.Item>
 
 	</>
 )
