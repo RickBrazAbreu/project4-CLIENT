@@ -13,6 +13,10 @@ body {
 .card-color-test{
     background-color: rgb(244, 126, 0);
 }
+.card-color-picture{
+    background-color: rgb(4, 244, 0);
+    height: 150px;
+}
 .itens-name-card{
     justify-content: center;
     align-items: center;
