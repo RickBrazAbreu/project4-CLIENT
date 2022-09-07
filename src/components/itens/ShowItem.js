@@ -62,6 +62,24 @@ const ShowItem = (props) => {
             })
     }
    
+    const buyTheItem = () => {
+        removeItem(user, item.id)
+            .then(() => {
+                msgAlert({
+                    heading: 'Purchased',
+                    message: messages.removeItemSuccess,
+                    variant: 'Item is now yours'
+                })
+            })
+            .then(() => {navigate('/')})
+            .catch(err => {                   
+                msgAlert({
+                    heading: 'Error buying item',
+                    message: messages.removeItemFailure,
+                    variant: 'try again momentarily'
+                })
+            })
+    }
 
     if (!item) {
         return <LoadingScreen />
@@ -136,7 +154,7 @@ const ShowItem = (props) => {
                             <div className="card-color"> 
                                 <small className='new-Item'> New: {item.new ? 'yes' : 'no'}
                                 </small>
-                                </div>
+                            </div>
                             
                             
                         </Card.Text>
@@ -157,6 +175,13 @@ const ShowItem = (props) => {
                                     variant="danger"
                                 >
                                     Delete {item.name}
+                                </Button>
+                                <Button onClick = {() =>
+                                    buyTheItem()}
+                                        className="m-2"
+                                        variant='bought'
+                                >
+                                    Buy {item.name}
                                 </Button>
                             </>
                             :
