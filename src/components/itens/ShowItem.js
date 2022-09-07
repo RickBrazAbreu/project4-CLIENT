@@ -85,15 +85,15 @@ const ShowItem = (props) => {
 
     return (
         <>
-            <Container className="fluid">
-                <Card>
-                    <Card.Header>{ item.item }</Card.Header>
-                    <Card.Body>
-                        <Card.Text>
-                            <div><h1>{ item.item }</h1></div>
-                            <h2>{item.brand}</h2>
-                            <h2>{item.price}</h2>
-                            <div> 
+            <Container className="fluid ">
+                <Card >
+                    <Card.Header> <h1>{ item.item } </h1> </Card.Header>
+                    <Card.Body className="card-color">
+                        <Card.Text className="card-color">
+                            {/* <div className="card-color-name"><h1>{ item.item }</h1></div> */}
+                            <h2 className="card-color">{item.brand}</h2>
+                            <h2 className="card-color">{item.price}</h2>
+                            <div className="card-color"> 
                                 <small className='new-Item'> New: {item.new ? 'yes' : 'no'}
                                 </small>
                                 </div>
@@ -102,10 +102,10 @@ const ShowItem = (props) => {
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                        {/* <Button onClick={() => setToyModalShow(true)}
+                        {/* <Button onClick={() => setEditModalShow(true)}
                             className="m-2" variant="info"
                         >
-                            Give {item.name} a toy!
+                            Give {item.name} edit!
                         </Button> */}
                         {
                             item.owner && user && item.owner._id === user._id 
@@ -131,7 +131,7 @@ const ShowItem = (props) => {
                 </Card>
             </Container>
             {/* <Container style={cardContainerLayout}>
-                {toyCards}
+                {}
             </Container> */}
             <EditItemModal 
                 user={user}

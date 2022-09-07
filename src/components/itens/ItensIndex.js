@@ -54,9 +54,9 @@ const ItensIndex = (props) => {
     }
 
     const itemCards = itens.map(item => (
-        <Card style={{ width: '30%', margin: 5}} key={ item.id }>
+        <Card className='card-shape'  style={{ width: '30%', margin: 5}} key={ item.id }>
             <Card.Header>{ item.item }</Card.Header>
-            <Card.Body>
+            <Card.Body className="card-color">
                 <Card.Text>
                     <Link to={`/itens/${item.id}`}>View { item.name }</Link>
                     <button>Add To Cart</button>
