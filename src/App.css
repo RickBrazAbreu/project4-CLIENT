@@ -5,8 +5,16 @@ body {
     background-color: rgb(194, 206, 216);
 }
 .card-shape{
-    border-radius: 60px;
+    border-radius: 80px;
 }
 .card-color-name{
     background-color: rgb(220, 227, 232);
+}
+.card-color-test{
+    background-color: rgb(244, 126, 0);
+}
+.itens-name-card{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
