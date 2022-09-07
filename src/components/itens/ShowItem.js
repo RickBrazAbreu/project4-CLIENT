@@ -4,7 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 // useParams will allow us to see our parameters
 // useNavigate will allow us to navigate to a specific page
 
-import { Container, Card, Button } from 'react-bootstrap'
+import { Container, Card, Button, Image } from 'react-bootstrap'
 
 import LoadingScreen from '../shared/LoadingScreen'
 import { getOneItem, updateItem, removeItem } from '../../api/itens'
@@ -86,49 +86,61 @@ const ShowItem = (props) => {
     return (
         <>
             <Container className="fluid "  >
-                <Card style={{ borderRadius:15 }}>
-                    <Card.Header className='itens-name-card'> <h1>{ item.item } </h1> </Card.Header>
-                    <Card.Body className="card-color" >
-                        <Card.Text className="card-color">
-                            {/* <div className="card-color-name"><h1>{ item.item }</h1></div> */}
-                            <h2 className="card-color">{item.brand}</h2>
-                            <h2 className="card-color">{item.price}</h2>
-                            <div className="card-color"> 
-                                <small className='new-Item'> New: {item.new ? 'yes' : 'no'}
-                                </small>
-                                </div>
-                            
-                            
-                        </Card.Text>
-                    </Card.Body>
-                    <Card.Footer>
-                        {/* <Button onClick={() => setEditModalShow(true)}
-                            className="m-2" variant="info"
-                        >
-                            Give {item.name} edit!
-                        </Button> */}
-                        {
-                            item.owner && user && item.owner._id === user._id 
-                            ?
-                            <>
-                                <Button onClick={() => setEditModalShow(true)} 
-                                    className="m-2" 
-                                    variant="warning"
-                                >
-                                    Edit Item
-                                </Button>
-                                <Button onClick={() => removeTheItem()}
-                                    className="m-2"
-                                    variant="danger"
-                                >
-                                    Delete {item.name}
-                                </Button>
-                            </>
-                            :
-                            null
-                        }
-                    </Card.Footer>
-                </Card>
+                <div className='row' >
+                    <div className='col-md-5' style={{textAlign: 'center', marginTop:10}}>
+
+                    
+                    <Card style={{ borderRadius:15 }}>
+                        <Card.Header className='itens-name-card'> <h1>{ item.item } </h1> </Card.Header>
+                        <Card.Body className="card-color" >
+                            <Card.Text className="card-color">
+                                {/* <div className="card-color-name"><h1>{ item.item }</h1></div> */}
+                                <h2 className="card-color">{item.brand}</h2>
+
+                                <Image fluid={true} src={item.itemtype} alt=''/>
+
+                                {/* <Image fluid={true} >{item.itemtype}</Image> */}
+
+                                <h2 className="card-color">{item.price}</h2>
+                                <div className="card-color"> 
+                                    <small className='new-Item'> New: {item.new ? 'yes' : 'no'}
+                                    </small>
+                                    </div>
+                                
+                                
+                            </Card.Text>
+                        </Card.Body>
+                        <Card.Footer>
+                            {/* <Button onClick={() => setEditModalShow(true)}
+                                className="m-2" variant="info"
+                            >
+                                Give {item.name} edit!
+                            </Button> */}
+                            {
+                                item.owner && user && item.owner._id === user._id 
+                                ?
+                                <>
+                                    <Button onClick={() => setEditModalShow(true)} 
+                                        className="m-2" 
+                                        variant="warning"
+                                    >
+                                        Edit Item
+                                    </Button>
+                                    <Button onClick={() => removeTheItem()}
+                                        className="m-2"
+                                        variant="danger"
+                                    >
+                                        Delete {item.name}
+                                    </Button>
+                                </>
+                                :
+                                null
+                            }
+                        </Card.Footer>
+                    </Card>
+
+                    </div>
+                </div>
             </Container>
             {/* <Container style={cardContainerLayout}>
                 {}

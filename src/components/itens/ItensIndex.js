@@ -2,12 +2,14 @@ import {
     useState, 
     useEffect 
 } from 'react'
-import Card from 'react-bootstrap/Card'
+
 import { Link } from 'react-router-dom'
 
 import LoadingScreen from '../shared/LoadingScreen'
 import { getAllItens } from '../../api/itens'
 import messages from '../shared/AutoDismissAlert/messages'
+import pantsImg from '../../imgs store/pants.jpeg'
+import {Container, Card, Row, Col, Image} from 'react-bootstrap'
 
 // ItensIndex should make a request to the api
 // To get all itens
@@ -54,21 +56,36 @@ const ItensIndex = (props) => {
     }
 
     const itemCards = itens.map(item => (
-        <Card  style={{ width: '30%', margin: 5, borderRadius:15 }} key={ item.id }>
+        <Col md='4'>
+       
+        <Card  style={{ width: '100%', margin: 5, borderRadius:15 }} key={ item.id }>
             <Card.Header className='itens-name-card'>{ item.item }</Card.Header>
             <Card.Body className="card-color" >
+            
+            {/* <Image src={item.itemtype} fluid={true} alt=''/> */}
+                {/* <Image fluid={true} src={item.itemtype} alt=''/> */}
+
+                
+
                 <Card.Text className='itens-name-card'>
                     <Link to={`/itens/${item.id}`}>View { item.name }</Link>
                     {/* <button>Add To Cart</button> */}
                 </Card.Text>
             </Card.Body>
         </Card>
+        </Col>
     ))
 
     return (
-        <div style={ cardContainerStyle }>
-            { itemCards }
-        </div>
+        <Container>
+            <Row style={cardContainerStyle}>
+                { itemCards}
+
+            </Row>
+        </Container>
+        // <div style={ cardContainerStyle }>
+        //     { itemCards }
+        // </div>
     )
 }
 

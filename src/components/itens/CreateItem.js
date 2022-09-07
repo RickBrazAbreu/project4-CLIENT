@@ -14,6 +14,7 @@ const CreateItem = (props) => {
         item: '',
         brand: '',
         price: '',
+        itemtype: '',
         new: false
     })
 
