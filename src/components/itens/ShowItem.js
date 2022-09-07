@@ -142,14 +142,7 @@ const ShowItem = (props) => {
                 triggerRefresh={() => setUpdated(prev => !prev)}
                 handleClose={() => setEditModalShow(false)} 
             />
-            {/* <NewToyModal 
-                item={item}
-                show={toyModalShow}
-                user={user}
-                msgAlert={msgAlert}
-                triggerRefresh={() => setUpdated(prev => !prev)}
-                handleClose={() => setToyModalShow(false)} 
-            /> */}
+            
         </>
     )
 }
