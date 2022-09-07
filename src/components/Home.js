@@ -2,7 +2,6 @@ import ItensIndex from './itens/ItensIndex'
 import './style.css'
 
 const Home = (props) => {
-	// const { msgAlert, user } = props
 	console.log('props in home', props)
 
 	const { msgAlert } = props

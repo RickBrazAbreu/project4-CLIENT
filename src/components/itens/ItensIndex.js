@@ -4,18 +4,12 @@ import {
 } from 'react'
 
 import { Link } from 'react-router-dom'
-
 import LoadingScreen from '../shared/LoadingScreen'
 import { getAllItens } from '../../api/itens'
 import messages from '../shared/AutoDismissAlert/messages'
 import pantsImg from '../../imgs store/pants.jpeg'
 import {Container, Card, Row, Col, Image} from 'react-bootstrap'
 
-// ItensIndex should make a request to the api
-// To get all itens
-// Then display them when it gets them
-
-// style for our card container
 const cardContainerStyle = {
     display: 'flex',
     flexFlow: 'row wrap',
@@ -48,7 +42,6 @@ const ItensIndex = (props) => {
         return <p>Error!</p>
     }
 
-    // If itens haven't been loaded yet, show a loading message
     if (!itens) {
         return <LoadingScreen />
     } else if (itens.length === 0) {
