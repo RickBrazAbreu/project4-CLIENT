@@ -19,14 +19,14 @@ https://github.com/RickBrazAbreu/Project4-Server
 #### Shopping
 
 - Search for Available ship items
-- Save items to a cart
+- Stretch goal Save items to a cart
 - 	remove items from cart
 - 	organize items in cart
 - 	favorite items in the cart
 - Favorite items for later
 - Remove favorites
 
-#### Shopping Cart
+#### Shopping Cart Stretch goal
 
 - Create shopping cart
 - 	must be unique to each user
