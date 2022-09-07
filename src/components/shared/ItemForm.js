@@ -42,9 +42,6 @@ const ItemForm = (props) => {
                     defaultChecked={ item.new  }
                     onChange={ handleChange }
                 />
-                {/* <Form.
-
-                /> */}
                 <Button type="submit">Submit</Button>
             </Form>
         </Container>

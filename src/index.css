@@ -10,7 +10,7 @@ body {
 
 }
 .main-screen{
-  height: 100vh; /* here make div extend height to the whole page*/
+  height: 100vh; 
   background-color: rgb(239, 226, 186);
 }
 
