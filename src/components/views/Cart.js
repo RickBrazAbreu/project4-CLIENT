@@ -57,7 +57,9 @@ const SignIn = (props) => {
     return (
         <div className='row'>
             <div className='col-sm-10 col-md-8 mx-auto mt-5'>
+
                 <h3>Loading Itens...</h3>
+
                 
             </div>
         </div>
