@@ -85,10 +85,10 @@ const ShowItem = (props) => {
 
     return (
         <>
-            <Container className="fluid ">
-                <Card >
-                    <Card.Header> <h1>{ item.item } </h1> </Card.Header>
-                    <Card.Body className="card-color">
+            <Container className="fluid "  >
+                <Card style={{ borderRadius:15 }}>
+                    <Card.Header className='itens-name-card'> <h1>{ item.item } </h1> </Card.Header>
+                    <Card.Body className="card-color" >
                         <Card.Text className="card-color">
                             {/* <div className="card-color-name"><h1>{ item.item }</h1></div> */}
                             <h2 className="card-color">{item.brand}</h2>
